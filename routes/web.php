@@ -16,32 +16,32 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect('/','/prototype/login');
+Route::redirect('/', '/login');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-Route::prefix('prototype')->name('prototype.')->group(function(){
-    route::get('/login',function(){
+Route::prefix('prototype')->name('prototype.')->group(function () {
+    route::get('/login', function () {
         return Inertia::render('Prototype/Login');
     })->name('login');
 
-    route::get('/register',function(){
+    route::get('/register', function () {
         return Inertia::render('Prototype/Register');
     })->name('register');
 
-    route::get('/dashboard',function(){
+    route::get('/dashboard', function () {
         return Inertia::render('Prototype/Dashboard');
     })->name('dashboard');
 
-    route::get('/subcriptionPlan',function(){
+    route::get('/subcriptionPlan', function () {
         return Inertia::render('Prototype/SubcriptionPlan');
     })->name('subcriptionPlan');
 
-    route::get('/movie/{slug}',function(){
+    route::get('/movie/{slug}', function () {
         return Inertia::render('Prototype/Movie/Show');
     })->name('movie.show');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
