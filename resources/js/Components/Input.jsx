@@ -1,4 +1,4 @@
-import { useEffect,useRef } from "react";
+import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 
 Input.PropTypes = {
@@ -17,26 +17,26 @@ Input.PropTypes = {
 };
 
 export default function Input({
-    type = 'text',
+    type = "text",
     name,
     value,
     defaultValue,
     className,
-    variant = 'primary',
+    variant = "primary",
     autoComplete,
     required,
     isFocused,
     handleChange,
     placeholder,
-    isError
+    isError,
 }) {
     const input = useRef();
 
-    useEffect(()=>{
-        if(isFocused){
-            input.currenct.focus();
+    useEffect(() => {
+        if (isFocused) {
+            input.current.focus();
         }
-    })
+    }, []);
 
     return (
         <div className="flex flex-col items-start">
